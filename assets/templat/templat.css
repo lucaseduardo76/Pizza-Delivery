@@ -1,0 +1,619 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif
+    
+}
+
+body{
+    display: flex;
+}
+main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all 1s;
+    
+}
+
+
+
+/*----------------CABEÇALHO----------------*/
+header{
+    background-color: #a9cef1;
+    width: 100%;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.logo img{
+    height: 130px;
+    
+}
+.menu ul{
+    display: flex;
+    
+    list-style-type: none;
+}
+.menu ul li{
+    height: 100%;
+    margin: 0 23px;
+    display: flex;    
+    border-bottom: solid 3px #a9cef1;
+}
+.menu ul li a{
+    text-decoration: none;
+    font-weight: 600;    
+    color: rgb(12, 90, 158);    
+}
+.menu ul li:hover, 
+.menu ul .active{
+    border-bottom: solid 3px #889dc5; 
+   
+}
+.menu-key{
+    display: none;
+}
+.car{
+    display: none;
+    align-items: center;
+    gap: 5px;
+    background-color: #889dc5;
+    border-radius: 30px;
+    padding: 7px;
+}
+.car img{
+    height: 30px;
+}
+.car span{
+    font-weight: 800;
+    color: #ddd;
+}
+
+
+/*----------------CORPO DO SITE-------------------------*/
+nav{
+    display: flex;
+    justify-content: center;
+}
+.container-pizza{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 80%;
+    justify-content: space-around;
+    row-gap: 15px;
+}
+.container-pizza .box-pizza{
+    max-width: 300px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    
+
+
+}
+.box-pizza img{
+    height: 200px;
+}
+.photo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+.add{
+    font-weight: 400;
+    font-size: 25px;
+    color: aliceblue;
+    background-color: #416ab6;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 40px;
+
+    margin-top: -25px;
+    cursor: pointer;
+}
+.add:hover{
+    background-color: #5f85cc;
+}
+
+
+.text{
+    display: flex;
+    flex-direction: column;
+    height: 175px;
+    align-items: center;
+    row-gap: 10px;
+    text-align: center;
+    color: #889dc5; 
+}
+.text h2{
+    color: rgb(4, 30, 87);
+}
+
+/*------------------PAINEL DE CONFIRMAÇÃO------------------*/
+.container-choose{
+    display: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    
+}
+.box-choose{
+    background-color: rgb(241, 241, 253);
+    height: 80vh;
+    width: 90vw;
+    max-width: 1250px;
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+
+}
+.menu{
+    display: flex;
+    align-items: center;
+}
+
+.box-choose img{
+    height: 500px;
+}
+.info-choose{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    
+    height: 100%;
+}
+.text-choose{
+    
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.text-choose h2{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
+    color: #5d6980;
+}
+.text-choose h4{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 21px;
+    color: #929292;
+}
+.text-choose h3,
+.quantity-choose h3{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 21px;
+    color: #c2c2c2;
+}
+.pizza-size div{
+    display: flex;
+}
+
+.pizza-size div div{
+  padding: 10px 25px;
+  margin-top: 15px;
+  border: none;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.cor{
+    background-color: #ddd;
+}
+.botao-color{
+    background-color: #416ab6;
+}
+
+.pizza-size div div span{
+    color: #999;
+    font-weight: 600;
+    font-size: 13px;
+}
+.pizza-size div div:nth-child(1){
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+  }
+.pizza-size div div:nth-child(3){
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.quantity-choose span{
+    font-size: 33px;
+    font-weight: 600;
+}
+.quantity-choose div{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+}
+.quantity-choose .valor_{
+     width: 190px;
+}
+.quantity-choose input{
+    font-weight: 600;
+    font-size: 15px;
+    padding: 8px;
+    background-color: #ddd;
+    border: none;
+    border-radius: 40px;
+    height: 25px;
+    width: 55px;
+   
+}
+.quantity-choose input:active{
+    border: none;
+}
+.confirm-choose button{
+    padding: 18px 40px;
+    border-radius: 20px;
+    border: none;
+    font-weight: 600;
+    font-size: 20px;
+    cursor: pointer;
+}
+.confirm-choose button:hover{
+    background-color: #ccc;
+}
+.confirm-choose button:nth-child(1){
+    background-color: #39a14b;
+    color: #ddd
+}
+.confirm-choose button:nth-child(1):hover{
+    background-color: #42834d;
+}
+
+/*--------------BARRA DE FINALIZAR COMPRA-----------*/
+
+aside{
+    display: none;
+    width: 500px;
+    transition: all 1s;
+}
+.container-aside{
+    background-color: #889dc5;
+    width: 100%;
+    padding: 0 20px;
+}
+.container-aside h2{
+    margin: 20px 0px;
+}
+.box-checkout-car .pizza-ph{
+    height: 60px;
+}
+.box-checkout-car{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+.box-checkout-car div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.box-checkout-car input{
+    font-weight: 800;
+    font-size: 15px;
+    padding: 8px;
+    background-color: #ddd;
+    border: none;
+    border-radius: 40px;
+    height: 25px;
+    width: 55px;
+}
+.box-checkout-car .close{
+    height: 20px;
+    margin-left: 10px;
+    transition: all 0.5s;
+    cursor: pointer;
+    padding: 2px;
+    border-radius: 10px;
+}
+.box-checkout-car .close:hover{
+    background-color: #ddd;
+    
+}
+.valores div{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 0.5px solid rgb(94, 103, 129);
+}
+.valores div h4{
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(90, 88, 114);
+}
+.valores .total h4{
+    font-size: 22px;
+    font-weight: 800;
+    color: black;
+}
+.valores .botao{
+    border: 0;
+}
+.valores button{
+    margin: auto;
+    padding: 20px 80px;
+    border-radius: 20px;
+    border: none;
+    font-weight: 600;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #39a14b;
+    color: #ddd;
+    box-shadow: #3bc753 1px 1px 10px;
+
+}
+
+.valores button:hover{
+    background-color: #42834d;
+}
+#close-mob{
+    display: none;
+}
+
+
+
+
+
+
+
+
+@media (max-width: 1110px) {
+    .text h5{
+        font-size: 9px;
+    }    
+    .box-choose img{
+        height: 380px;
+    }
+    .text-choose h4{
+        font-size: 15px;
+    }
+    .confirm-choose button{
+        padding: 14px 35px;
+        font-size: 14px;
+    }
+    .pizza-size div div{
+        padding: 7px 20px;
+        font-size: 12px;
+    }
+    .pizza-size div div span{
+        font-size: 10px;
+    }
+}
+@media (max-width: 1000px) {
+    aside{
+        width: 500px;
+    }
+    .container-pizza{
+        grid-template-columns: auto auto;
+        
+    }
+}
+@media (max-width: 880px) {
+    aside{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+    }
+    #close-mob{
+        display: block;
+        cursor: pointer;
+    }
+    .car{
+        display: flex;
+        cursor: pointer;
+    }
+    .box-choose img{
+        height: 300px;
+    }
+    .confirm-choose button{
+        padding: 14px 35px;
+        font-size: 12px;
+    }
+    .pizza-size div div{
+        padding: 7px 20px;
+        font-size: 10px;
+    }
+    .pizza-size div div span{
+        font-size: 8px;
+    }
+    .text-choose h4{
+        font-size: 13px;
+    }
+}
+@media (max-width: 720px){
+    .box-choose{
+        display: block;
+        grid-template-columns: auto;
+        height: auto;
+        gap: 0;
+        align-items: start;
+        justify-content: start;
+        position: relative;
+        height: 100vh;
+        padding: 15px;
+   
+    }
+    .choose-img{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    .text-choose{
+        height: 220px;
+        justify-content: space-between;
+    }
+    .info-choose{
+        justify-content: flex-start;
+
+        height: auto;
+        width: 100%;
+    }
+    .text-choose h4{
+        font-size: 16px;
+    }
+    .box-choose img{
+        height: 400px;
+    }
+    .quantity-choose{
+        margin-top: 30px;
+    }
+    .pizza-size div div{
+        padding: 10px 25px;
+        font-size: 18px;
+    }
+    .pizza-size div div span{
+        font-size: 13px;
+    }
+    
+    .confirm-choose button{
+        margin-top: 30px;
+     }
+}
+
+
+
+@media (max-width: 600px) {
+    .container-pizza .box-pizza{
+        height:300px;
+    }
+    .box-pizza img{
+        height: 120px;
+    }
+    .container-pizza{
+        row-gap: 0;
+    }
+    .menu ul li{
+        margin:  0 10px;
+    }
+
+
+    header{
+        justify-content: space-between;
+    }
+    .menu ul{
+        flex-direction: column;
+        position: fixed;
+        margin-left: -190px;
+        margin-top: 100vh;
+        background-color: rgba(0, 0, 0,0.9 );
+        height: calc(100vh - 134px) ;
+        width: 450px;
+        display: none;
+    }
+    .menu ul li a{
+        font-size: 25px;
+        
+    }
+    .menu ul li{
+        margin: 0;
+        display: flex;
+        align-items: center;
+        
+    }
+    
+    .menu-key{
+        display: block;
+        margin-right: 15px;
+    }
+    
+
+}
+@media (max-width: 580px) {
+    .pizza-size div div{
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+    .pizza-size div div span{
+        font-size: 11px;
+    }
+}
+@media (max-width: 500px) {
+    .box-choose img{
+        height: 370px;
+    }
+    .pizza-size div div{
+        padding: 7px 20px;
+        font-size: 12px;
+    }
+    .pizza-size div div span{
+        font-size: 11px;
+    }
+    .text-choose h4{
+        font-size: 14px;
+    }
+    .text-choose h2 {
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 430px) {
+    .box-choose img{
+        height: 340px;
+    }
+    .container-pizza{
+        grid-template-columns: auto;
+    }
+    .pizza-size div div{
+        padding: 7px 20px;
+        font-size: 10px;
+    }
+    .pizza-size div div span{
+        font-size: 9px;
+    }
+    .confirm-choose button{
+        padding: 11px 30px;
+        font-size: 10px;
+    }
+
+}
+@media (max-width: 380px) {
+    .box-choose img{
+        height: 280px;
+    }
+    .pizza-size div div{
+        padding: 7px 15px;
+        font-size: 9px;
+    }
+    .pizza-size div div span{
+        font-size: 9px;
+    }
+    .confirm-choose button{
+        padding: 11px 20px;
+        font-size: 10px;
+    }
+}
+@media (max-width: 330px) {
+    .menu ul{
+        width: 260px;
+        margin-left: -130px;
+    }
+    .pizza-size div div{
+        padding: 7px 11px;
+        font-size: 9px;
+    }
+    .pizza-size div div span{
+        font-size: 9px;
+    }
+}

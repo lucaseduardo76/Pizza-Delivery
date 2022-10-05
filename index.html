@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzaria do Bairro - Projeto Lucas E.</title>
+    <link rel="stylesheet" href="assets/templat/templat.css">
+    <link rel="shortcut icon" href="assets/imagens/pizza-icon.jpg" type="image/x-icon">
+   
+</head>
+
+<body>
+    <main>
+    <div class="container-choose" >
+        <div class="box-choose" onkeyup="cancelEsc(event)" style="flex-direction: column;">
+            <div class="choose-img" >
+                <img id="img-choose" src="assets/imagens/pizza.png" alt="pizza">
+            </div>
+            <div class="info-choose">
+                <div class="text-choose">
+                    <h2 id="result-sabor">Mussarela</h2>
+                    <h4>Descrição da Pizza em mais de uma linha muito legal bem interessante</h4>
+                    
+                    <div class="pizza-size">
+                        <h3>TAMANHO</h3>
+                        <div>
+                            <div class="cor" id="small" onclick="pizzaSize(), small = true">PEQUENA <span>100g</span></div>
+                            <div class="cor" id="medium" onclick="pizzaSize(), medium = true">MEDIA <span>530g</span></div>
+                            <div class="cor botao-color" id="large" onclick="pizzaSize(), large = true">GRANDE <span>860g</span></div>
+                        </div>
+                    </div>
+                </div>
+
+               
+
+                <div class="quantity-choose">
+                    <h3>PREÇO</h3>
+                    <div>
+                       <span class="valor_">R$ <span id="result-valor"> </span></span> 
+                        <input type="number" name="choose" id="howManyPizza" min="1" max="50" onclick="price(pizzaJson[i])" onkeyup="price(pizzaJson[i])">
+                    </div>
+                </div>
+
+                <div class="confirm-choose">
+                    <button onclick="openCar(), addToCar(amount,obj), restartPrice(), price(pizzaJson[i]), pizzaQuantity()">Adicionar ao carrinho</button>
+                    <button onclick="cancel()">Cancelar</button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <header >
+        <div class="logo" > <img src="assets/imagens/logo.png" alt="Logo Pizzaria"></div>
+
+        <div class="menu" >
+            <ul>
+                <li class="active"><a href="">Home</a></li>
+                <li><a href="">Endereço</a></li>
+                <li><a href="">Contato</a></li>
+                <li><a href="">Sobre</a></li>
+            </ul>
+            <div class="car" onclick="openCarMob()">
+                <img src="assets/imagens/buy-car.png" alt="">
+                <span id="qnt-pizza">0</span>
+            </div>
+        </div>
+        
+        <div class="menu-key">
+            <img id="menu-key" src="assets/imagens/menu.svg" onclick="openMenu()" alt="">
+        </div>
+    </header>
+        <nav>
+            <div class="container-pizza">
+                <div class="box-pizza">
+                    <div class="photo">
+                        <img id="img-choose" src="assets/imagens/pizza.png" alt="">
+                        <button class="add" onclick="chooseOne(pizzaJson[0]), i = 0">+</button>
+                    </div>
+                    <div class="text">
+                        <h3 id="texto">R$ <span id="valor-pizza1">20.19</span></h3>
+                        <h2 class="sabor">Mussarela</h2>
+                        <h5>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias culpa incidunt ab earum distinctio</h5>
+                    </div>
+                </div>
+
+                <div class="box-pizza">
+                    <div class="photo">
+                        <img src="assets/imagens/pizza2.png" alt="">
+                        <button class="add" onclick="chooseOne(pizzaJson[1]), i = 1">+</button>
+                    </div>
+                    <div class="text">
+                        <h3>R$ <span id="valor-pizza2">24.29</span></h3>
+                        <h2>Bahiana</h2>
+                        <h5>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias culpa incidunt ab earum distinctio</h5>
+                    </div>
+                </div>
+
+                <div class="box-pizza">
+                    <div class="photo">
+                        <img src="assets/imagens/pizza3.png" alt="">
+                        <button class="add" onclick="chooseOne(pizzaJson[2]), i = 2">+</button>
+                    </div>
+                    <div class="text">
+                        <h3>R$ <span id="valor-pizza3">32.12</span></h3>
+                        <h2>Napolitana</h2>
+                        <h5>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias culpa incidunt ab earum distinctio</h5>
+                    </div>
+                </div>
+
+                <div class="box-pizza">
+                    <div class="photo">
+                        <img src="assets/imagens/pizza4.png" alt="">
+                        <button class="add" onclick="chooseOne(pizzaJson[3]), i = 3">+</button>
+                    </div>
+                    <div class="text">
+                        <h3>R$ <span id="valor-pizza4">34.12</span></h3>
+                        <h2>4 Queijos</h2>
+                        <h5>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias culpa incidunt ab earum distinctio</h5>
+                    </div>
+                </div>
+
+                <div class="box-pizza">
+                    <div class="photo">
+                        <img src="assets/imagens/pizza5.png" alt="">
+                        <button class="add" onclick="chooseOne(pizzaJson[4]), i = 4">+</button>
+                    </div>
+                    <div class="text">
+                        <h3>R$ <span id="valor-pizza5">26.10</span></h3>
+                        <h2>Moda da Casa</h2>
+                        <h5>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias culpa incidunt ab earum distinctio</h5>
+                    </div>
+                </div>
+
+                <div class="box-pizza">
+                    <div class="photo">
+                        <img src="assets/imagens/pizza6.png" alt="">
+                        <button class="add" onclick="chooseOne(pizzaJson[5]), i = 5">+</button>
+                    </div>
+                    <div class="text">
+                        <h3>R$ <span id="valor-pizza6">27.19</span></h3>
+                        <h2>Bacalhau</h2>
+                        <h5>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias culpa incidunt ab earum distinctio</h5>
+                    </div>
+                </div>
+
+                <div class="box-pizza">
+                    <div class="photo">
+                        <img src="assets/imagens/pizza7.png" alt="">
+                        <button class="add" onclick="chooseOne(pizzaJson[6]), i = 6">+</button>
+                    </div>
+                    <div class="text">
+                        <h3>R$ <span id="valor-pizza7">18.19</span></h3>
+                        <h2>Chocolate</h2>
+                        <h5>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias culpa incidunt ab earum distinctio</h5>
+                    </div>
+                </div>
+
+                <div class="box-pizza">
+                    <div class="photo">
+                        <img src="assets/imagens/pizza.png" alt="">
+                        <button class="add" onclick="chooseOne(pizzaJson[7]), i = 7">+</button>
+                    </div>
+                    <div class="text">
+                        <h3>R$ <span id="valor-pizza8">29.24</span></h3>
+                        <h2>Calabresa</h2>
+                        <h5>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias culpa incidunt ab earum distinctio</h5>
+                    </div>
+                </div>
+
+                <div class="box-pizza">
+                    <div class="photo">
+                        <img src="assets/imagens/pizza2.png" alt="">
+                        <button class="add" onclick="chooseOne(pizzaJson[8]), i = 8">+</button>
+                    </div>
+                    <div class="text">
+                        <h3>R$ <span id="valor-pizza9">24.19</span></h3>
+                        <h2>Camarão</h2>
+                        <h5>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias culpa incidunt ab earum distinctio</h5>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </main>
+    <aside>
+        <div class="container-aside">
+            <img id="close-mob"  class="close" src="assets/imagens/close.svg" alt="" onclick="closeCarMob()">
+            <h2>Suas Pizzas</h2>
+            <div id="pizza-end">
+                
+            </div>
+
+            <div class="valores">
+                <div class="subtotal">
+                    <h4>Subtotal</h4>
+                    <h4>R$ <span id="subTot">0.00</span></h4>
+                </div>
+                <div class="desconto">
+                    <h4>Desconto (-10%)</h4>
+                    <h4>R$ <span id="desc">0.00</span></h4>
+                </div>
+                <div class="total">
+                    <h4>Total</h4>
+                    <h4>R$ <span id="total">0.00</span></h4>
+                </div>
+                <div class="botao"><button>Finalizar a compra</button></div>
+            </div>
+        </div>
+
+    </aside>
+    
+    <script src="assets/script/script.js"></script>
+</body>
+</html>
