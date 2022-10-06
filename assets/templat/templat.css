@@ -451,13 +451,15 @@ aside{
         justify-content: start;
         position: relative;
         height: 100vh;
-        padding: 15px;
+        padding: 30px 15px;
+        
    
     }
     .choose-img{
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-top: 10px;
         
     }
     .text-choose{
@@ -497,6 +499,7 @@ aside{
 @media (max-width: 600px) {
     .container-pizza .box-pizza{
         height:300px;
+        
     }
     .box-pizza img{
         height: 120px;
@@ -590,7 +593,10 @@ aside{
 }
 @media (max-width: 380px) {
     .box-choose img{
-        height: 280px;
+        height: 220px;
+    }
+    .text-choose{
+        height: 170px;
     }
     .pizza-size div div{
         padding: 7px 15px;
