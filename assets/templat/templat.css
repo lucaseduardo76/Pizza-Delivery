@@ -286,6 +286,7 @@ aside{
     display: none;
     width: 500px;
     transition: all 1s;
+    overflow-y: auto;
 }
 .container-aside{
     background-color: #889dc5;
