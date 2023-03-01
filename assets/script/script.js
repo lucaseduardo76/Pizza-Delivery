@@ -1,98 +1,93 @@
-let pizzaJson = [
-    {id:1, name:'Mussarela', img:'assets/imagens/pizza.png', price:[9.80, 12.14, 20.19], sizes:['100g', '530g', '860g'], description:'Descrição da pizza em mais de uma linha muito legal bem interessante'},
-    {id:2, name:'Bahiana', img:'assets/imagens/pizza2.png', price:[7.47, 14.51, 24.29], sizes:['320g', '530g', '860g'], description:'Descrição da pizza em mais de uma linha muito legal bem interessante'},
-    {id:3, name:'Napolitana', img:'assets/imagens/pizza3.png', price:[6.84, 10.20, 32.12], sizes:['320g', '530g', '860g'], description:'Descrição da pizza em mais de uma linha muito legal bem interessante'},
-    {id:4, name:'4 Queijos', img:'assets/imagens/pizza4.png', price:[4.54, 13.45, 32.12], sizes:['320g', '530g', '860g'], description:'Descrição da pizza em mais de uma linha muito legal bem interessante'},
-    {id:5, name:'Moda da Casa', img:'assets/imagens/pizza5.png', price:[8.45, 14.20, 26.10], sizes:['320g', '530g', '860g'], description:'Descrição da pizza em mais de uma linha muito legal bem interessante'},
-    {id:6, name:'Bacalhau', img:'assets/imagens/pizza6.png', price:[6.84, 10.25, 27.19], sizes:['320g', '530g', '860g'], description:'Descrição da pizza em mais de uma linha muito legal bem interessante'},
-    {id:7, name:'Chocolate', img:'assets/imagens/pizza7.png', price:[9.87, 14.20, 18.19], sizes:['320g', '530g', '860g'], description:'Descrição da pizza em mais de uma linha muito legal bem interessante'},
-    {id:7, name:'Calabresa', img:'assets/imagens/pizza.png', price:[7.65, 15.20, 29.24], sizes:['320g', '530g', '860g'], description:'Descrição da pizza em mais de uma linha muito legal bem interessante'},
-    {id:7, name:'Camarão', img:'assets/imagens/pizza2.png', price:[8.45, 16.45, 24.19], sizes:['320g', '530g', '860g'], description:'Descrição da pizza em mais de uma linha muito legal bem interessante'}
-];
+
 //função que insere nome, imagem e faz a tela de seleção da pizza aparecer
-function chooseOne(json){
+function chooseOne(json) {
+
+    document.getElementById('large').classList.add('botao-color')
+    SizeValidationL = true;
+
     let sabor = json.name;
-    document.getElementById('result-sabor').innerHTML = sabor;    
+    document.getElementById('result-sabor').innerHTML = sabor;
     document.getElementsByClassName('container-choose')[0].style.display = 'flex';
-    document.getElementById('result-valor').innerHTML = json.price[2].toFixed(2); 
+    document.getElementById('result-valor').innerHTML = json.price[2].toFixed(2);
 
     let img = document.getElementById('img-choose');
-    img.setAttribute('src', json.img);    
+    img.setAttribute('src', json.img);
     price(json);
 }
+
 //função que calcula o valor da pizza de acordo com a quantidade e insere no HTML
-function price(json){
+function price(json) {
     let valor = 0;
-    if(priceS){
+    if (priceS) {
         valor = json.price[0];
-    }else if(priceM){
+    } else if (priceM) {
         valor = json.price[1];
-    }else if(priceL){
+    } else if (priceL) {
         valor = json.price[2];
     };
-   
-    let howMany = document.getElementById('howManyPizza').value;  
-    let finalValue = valor*howMany;
-    document.getElementById('result-valor').innerHTML = finalValue.toFixed(2);    
+
+    let howMany = document.getElementById('howManyPizza').value;
+    let finalValue = valor * howMany;
+    document.getElementById('result-valor').innerHTML = finalValue.toFixed(2);
     amount = howMany;
     obj = json;
-   
+
 }
 //função que fecha o campo de seleção da pizza no botão cancel
-function cancel(){
+function cancel() {
     document.getElementsByClassName('container-choose')[0].style.display = 'none';
 }
 //função que fecha o campo de seleção da pizza com a tecla ESC
-function cancelEsc(e){
-    if(e.keyCode == 27){
+function cancelEsc(e) {
+    if (e.keyCode == 27) {
         document.getElementsByClassName('container-choose')[0].style.display = 'none';
     }
 }
 //função que abre a barra de finalização
-function openCar(){
-    if(small1 === true || medium1 === true|| large1 === true){
+function openCar() {
+    if (SizeValidationS === true || SizeValidationM === true || SizeValidationL === true) {
         document.getElementsByTagName('aside')[0].style.display = 'flex';
-        document.getElementsByClassName('container-choose')[0].style.display = 'none';        
+        document.getElementsByClassName('container-choose')[0].style.display = 'none';
         window.scrollTo({
-            top:0,
-            left:0,
-            behavior:'smooth'
-        });        
-    }else{
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+    } else {
         window.alert('ESCOLHA O TAMANHO DA PIZZA!')
-    }    
+    }
 }
 //função que abre a barra de finalização no mobile
-function openCarMob(){
-    if(listChoose.length > 0){        
-        if(quantityCar > 0){
+function openCarMob() {
+    if (listChoose.length > 0) {
+        if (quantityCar > 0) {
             document.getElementsByTagName('aside')[0].style.display = 'flex';
             window.scrollTo({
-                top:0,
-                left:0,
-                behavior:'smooth'
-            });  
-                  
-        }else{
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+
+        } else {
             window.alert('NENHUMA PIZZA NO CARRINHO');
-        } 
-    }          
+        }
+    }
 }
 //função que fecha a barra de finalização no mobile
-function closeCarMob(){
-    
-        document.getElementsByTagName('aside')[0].style.display = 'none';
-           
-        window.scrollTo({
-            top:0,
-            left:0,
-            behavior:'smooth'
-        });        
-     
+function closeCarMob() {
+
+    document.getElementsByTagName('aside')[0].style.display = 'none';
+
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    });
+
 }
 //função que insere o pedido na barra de finalização
-function addToCar(howMany, json){
-    if(small1 === true|| medium1 === true|| large1 === true){
+function addToCar(howMany, json) {
+    if (SizeValidationS === true || SizeValidationM === true || SizeValidationL === true) {
         let container = document.getElementById('pizza-end');
         container.innerHTML += `<div class="pizza-car"> 
                                         <div class="box-checkout-car">
@@ -108,99 +103,98 @@ function addToCar(howMany, json){
                                         </div>
                                 </div>`;
 
-        small1 = false;
-        medium1 = false;
-        large1 = false;
+        SizeValidationS = false;
+        SizeValidationM = false;
+        SizeValidationL = false;
         cleanColor();
-        document.getElementById('large').classList.add('botao-color'); 
 
-         
-         cretingNewJson(obj, sizeChoose, howMany)
-         amountPizzaInput(listChoose)
-         somaFinal(listChoose)
+
+        cretingNewJson(obj, sizeChoose, howMany)
+        amountPizzaInput(listChoose)
+        somaFinal(listChoose)
     }
 }
 
 //função que faz a verificação do tamanho da pizza
-function pizzaSize(){   
-    if(small){
+function pizzaSize(item) {
+    if (item == 'small') {
         small = false;
-        small1 = true;
+        SizeValidationS = true;
         sizeChoose = "p";
         cleanColor()
-        cleanPriceSize()  
-        priceS = true;      
+        cleanPriceSize()
+        priceS = true;
         document.getElementById('small').classList.add('botao-color')
-    }else if(medium){
+    } else if (item == 'medium') {
         medium = false;
-        medium1 = true;
+        SizeValidationM = true;
         sizeChoose = "M";
         cleanColor()
-        cleanPriceSize()    
-        priceM = true;   
+        cleanPriceSize()
+        priceM = true;
         document.getElementById('medium').classList.add('botao-color')
-    }else if(large){
+    } else if (item == 'large') {
         large = false;
-        large1 = true;        
+        SizeValidationL = true;
         sizeChoose = "G";
         cleanColor()
-        cleanPriceSize()  
-        priceL = true;      
+        cleanPriceSize()
+        priceL = true;
         document.getElementById('large').classList.add('botao-color')
     }
-    price(pizzaJson[i])    
+    price(pizzaJson[i])
 }
 
 //função que reseta as cores dos botões de tamanho
-function cleanColor(){
+function cleanColor() {
     document.getElementById('small').classList.remove('botao-color')
     document.getElementById('medium').classList.remove('botao-color')
     document.getElementById('large').classList.remove('botao-color')
 }
 
 //função para resetar as variaveis que verificam qual o tamanho da pizza pra condicionar o preço
-function cleanPriceSize(){
+function cleanPriceSize() {
     priceS = false;
     priceM = false;
     priceL = false;
 }
 
 //função para resetar o input number da aba de escolha do pedido
-function restartPrice(){
-    document.getElementById('howManyPizza').value = 1; 
+function restartPrice() {
+    document.getElementById('howManyPizza').value = 1;
 }
 //Criando um novo json pra armazenar as pizzas escolhidas
-function cretingNewJson(newJson, size, howMany){
-    
+function cretingNewJson(newJson, size, howMany) {
+
     let sizeArray;
-    if(size == 'G'){
+    if (size == 'G') {
         sizeArray = 2;
-    }else if(size == "M"){
+    } else if (size == "M") {
         sizeArray = 1;
-    }else if(size == "p"){
+    } else if (size == "p") {
         sizeArray = 0;
     };
     let jsonChoose = {
-        name:newJson.name,
+        name: newJson.name,
         quantity: howMany,
-        price:newJson.price[sizeArray],        
+        price: newJson.price[sizeArray],
     };
     listChoose.push(jsonChoose)
     console.log(listChoose)
 
 }
 //função para inputar quantidade de pizzar selecionadas no input da finalização
-function amountPizzaInput(newJson){
-    for(let n in newJson){
+function amountPizzaInput(newJson) {
+    for (let n in newJson) {
         let inputNumber = document.getElementsByClassName('newhowManyPizza')[n];
-        inputNumber.value = newJson[n].quantity;     
-  };
+        inputNumber.value = newJson[n].quantity;
+    };
 };
 //Função para armazenar o valor de cada pizza no array *lisValue
-function somaFinal(newJson){
-    let jsonSize = newJson.length - 1;   
+function somaFinal(newJson) {
+    let jsonSize = newJson.length - 1;
     let qnt = parseFloat(newJson[jsonSize].quantity);
-    let preco = parseFloat(newJson[jsonSize].price);    
+    let preco = parseFloat(newJson[jsonSize].price);
     let multValor = qnt * preco;
     listValue.push(multValor);
 
@@ -208,13 +202,13 @@ function somaFinal(newJson){
 };
 
 //função para somar os valores totais e desconto
-function lastValue(){
+function lastValue() {
     //Soma dos valores totais *SUBTOTAL
     totValue = totValue + listValue[positionArray];
     positionArray++
 
     //calculo do desconto de 10% *DESCONTO
-    descTen = totValue*0.10;    
+    descTen = totValue * 0.10;
 
     //Valor total com desconto *TOTAL
     totValueWdesc = totValue - descTen;
@@ -224,44 +218,44 @@ function lastValue(){
 };
 
 //Função para inputar valores na pagina
-function valuePage(){
+function valuePage() {
     let subtotal = document.getElementById('subTot');
     let desc = document.getElementById('desc');
     let total = document.getElementById('total');
-    
+
 
     subtotal.innerHTML = totValue.toFixed(2);
     desc.innerHTML = descTen.toFixed(2);
     total.innerHTML = totValueWdesc.toFixed(2);
-    
+
 
 }
 //função para quando a quantidade das pizzas forem alteradas na finalização
-function newValue(id){    
+function newValue(id) {
     let input = document.getElementById(id);
-    if(input.value == ''){       
+    if (input.value == '') {
         //Validação de caracteres no input        
 
-    }else{
+    } else {
         listChoose[id].quantity = input.value;
         let qnt = parseFloat(listChoose[id].quantity);
-        let preco = parseFloat(listChoose[id].price);    
+        let preco = parseFloat(listChoose[id].price);
         let multValor = qnt * preco;
         valorAntigo = listValue[id]
         listValue[id] = multValor
 
         changeValue(id)
         idatual = id;
-    };    
+    };
 }
 //função para somar os valores totais e desconto caso haja alguma alteração na finalização
-function changeValue(id){
+function changeValue(id) {
     //Soma dos valores totais *SUBTOTAL
     totValue = totValue - valorAntigo;
     totValue = totValue + listValue[id];
 
     //calculo do desconto de 10% *DESCONTO
-    descTen = totValue*0.10;    
+    descTen = totValue * 0.10;
 
     //Valor total com desconto *TOTAL
     totValueWdesc = totValue - descTen;
@@ -271,40 +265,40 @@ function changeValue(id){
 
 }
 //função para remover a pizza do carro de finalização
-function removeChoose(id){    
+function removeChoose(id) {
     document.getElementsByClassName('pizza-car')[id].style.display = 'none';
     valorAntigo = listValue[id];
     listValue[id] = 0;
     listChoose[id].quantity = 0;
 
-    removeValuePage(id)   
-    pizzaQuantity() 
+    removeValuePage(id)
+    pizzaQuantity()
 };
 //função para subtrair o valor da pizza que foi removida do valor total e fechar o carrinho de finalização caso todas as pizzas sejam removidas
-function removeValuePage(id){
+function removeValuePage(id) {
     //Soma dos valores totais *SUBTOTAL
     totValue = totValue - valorAntigo;
 
     //calculo do desconto de 10% *DESCONTO
-    descTen = totValue*0.10;    
+    descTen = totValue * 0.10;
 
     //Valor total com desconto *TOTAL
     totValueWdesc = totValue - descTen;
 
     //chamando função para inputar valores na pagina
-    if(totValueWdesc == 0 ){
+    if (totValueWdesc <= 0 ) {
         document.getElementsByTagName('aside')[0].style.display = 'none';
     }
     valuePage();
 }
-function pizzaQuantity(){
+
+function pizzaQuantity() {
     quantityCar = 0;
-    for(let n in listChoose){
-        let u = parseInt(listChoose[n].quantity);            
-        quantityCar = quantityCar + u;
-        console.log(`Jason: ${u}, variavel: ${quantityCar}`)       
+    for (let n in listChoose) {
+        let valueFinalCar = parseInt(listChoose[n].quantity);
+        quantityCar += valueFinalCar;
     }
-    
+
     let carPage = document.getElementById('qnt-pizza');
     carPage.innerHTML = quantityCar;
 }
@@ -312,17 +306,17 @@ function pizzaQuantity(){
 
 //função para travar o scroll quando o menu estiver aberto
 addEventListener('scroll', block)
-function block(){
+function block() {
     let menu = document.getElementById('menu-key').getAttribute('src');
-    if(menu == 'assets/imagens/close.svg'){
-        window.scrollTo(0,0)
+    if (menu == 'assets/imagens/close.svg') {
+        window.scrollTo(0, 0)
     }
 }
 //função para abrir menu
-function openMenu(){
+function openMenu() {
     let menu = document.getElementById('menu-key');
     let atributo = document.getElementById('menu-key').getAttribute('src')
-    if(atributo == 'assets/imagens/menu.svg'){
+    if (atributo == 'assets/imagens/menu.svg') {
         menu.setAttribute('src', 'assets/imagens/close.svg');
         document.querySelectorAll('.menu ul')[0].style.display = 'flex';
         window.scrollTo({
@@ -331,7 +325,7 @@ function openMenu(){
             behavior: 'smooth'
 
         })
-    }else{
+    } else {
         menu.setAttribute('src', 'assets/imagens/menu.svg');
         document.querySelectorAll('.menu ul')[0].style.display = 'none';
     }
@@ -348,9 +342,9 @@ let small = false; // pizza pequena
 let medium = false; // pizza media
 let large = false; // pizza grande
 let sizeChoose = "G"; // Tamanho escolhido
-let small1;
-let medium1; 
-let large1 = true;
+let SizeValidationS;
+let SizeValidationM;
+let SizeValidationL;
 let priceS; // definir valor pelo tamanho
 let priceM; // definir valor pelo tamanho
 let priceL = true; // definir valor pelo tamanho
