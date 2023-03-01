@@ -25,4 +25,4 @@ Um site responsivo de delivery de pizza criado com HTML, CSS e JavaScript. O sit
 - Abra um Pull Request para a branch principal do repositório.
 
 # Autor
-Lucas Eduardo - <a href="https://www.linkedin.com/in/lucas-eduardo-silva-071417244/" target="_blank">Linkedin</a> - <a href="lucased.netlify.app/" target="_blank">Portifólio pessoal</a>
+Lucas Eduardo - <a href="https://www.linkedin.com/in/lucas-eduardo-silva-071417244/" target="_blank">Linkedin</a> - <a href="https://lucased.netlify.app/" target="_blank">Portifólio pessoal</a>
