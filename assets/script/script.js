@@ -1,7 +1,8 @@
 
 //função que insere nome, imagem e faz a tela de seleção da pizza aparecer
 function chooseOne(json) {
-
+    
+    cleanColor()
     document.getElementById('large').classList.add('botao-color')
     SizeValidationL = true;
 
