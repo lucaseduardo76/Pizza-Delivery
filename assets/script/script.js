@@ -1,15 +1,16 @@
 
 //função que insere nome, imagem e faz a tela de seleção da pizza aparecer
 function chooseOne(json) {
-    
+    cleanPriceSize()
+    priceL= true;
     cleanColor()
+    
     document.getElementById('large').classList.add('botao-color')
     SizeValidationL = true;
 
     let sabor = json.name;
     document.getElementById('result-sabor').innerHTML = sabor;
     document.getElementsByClassName('container-choose')[0].style.display = 'flex';
-    document.getElementById('result-valor').innerHTML = json.price[2].toFixed(2);
 
     let img = document.getElementById('img-choose');
     img.setAttribute('src', json.img);
