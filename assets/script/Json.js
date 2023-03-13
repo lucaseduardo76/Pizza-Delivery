@@ -12,7 +12,7 @@ let pizzaJson = [
 
 //função que insere as pizzas do Json no site
 function pizzasOnScreen(json) {
-    pizzaJson.map((item)=>{document.querySelector('.container-pizza').innerHTML += `<div class="box-pizza">
+    json.map((item)=>{document.querySelector('.container-pizza').innerHTML += `<div class="box-pizza">
     <div class="photo">
         <img id="img-choose" src=${item.img} alt="">
         <button class="add" onclick="chooseOne(pizzaJson[${item.id}]), i = ${item.i}">+</button>
@@ -25,4 +25,4 @@ function pizzasOnScreen(json) {
 </div>`})    
 }
 
-pizzasOnScreen()
+pizzasOnScreen(pizzaJson)
